@@ -1,0 +1,53 @@
+{
+    "kind": "singleType",
+    "collectionName": "configs",
+    "info": {
+        "singularName": "config",
+        "pluralName": "configs",
+        "displayName": "Konfiguration",
+        "description": ""
+    },
+    "options": {
+        "draftAndPublish": false
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "favicon": {
+            "type": "media",
+            "multiple": false,
+            "required": true,
+            "allowedTypes": [
+                "images"
+            ]
+        },
+        "navbar": {
+            "type": "component",
+            "repeatable": false,
+            "component": "layout.navbar",
+            "required": true
+        },
+        "footer": {
+            "type": "component",
+            "repeatable": false,
+            "component": "layout.footer",
+            "required": true
+        },
+        "cookies": {
+            "type": "component",
+            "repeatable": false,
+            "component": "misc.cookie-consent",
+            "required": true
+        },
+        "notificationBanner": {
+            "type": "component",
+            "repeatable": false,
+            "component": "misc.notification-banner",
+            "required": false
+        },
+        "metadata": {
+            "type": "component",
+            "repeatable": false,
+            "component": "misc.metadata"
+        }
+    }
+}

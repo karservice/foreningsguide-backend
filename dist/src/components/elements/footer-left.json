@@ -1,0 +1,25 @@
+{
+    "collectionName": "components_elements_footer_lefts",
+    "info": {
+        "displayName": "footerLeft"
+    },
+    "options": {},
+    "attributes": {
+        "heading": {
+            "type": "string",
+            "required": true
+        },
+        "content": {
+            "type": "blocks",
+            "required": true
+        },
+        "euLogo": {
+            "allowedTypes": [
+                "images"
+            ],
+            "type": "media",
+            "multiple": false,
+            "required": true
+        }
+    }
+}

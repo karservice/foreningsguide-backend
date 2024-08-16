@@ -1,0 +1,40 @@
+{
+    "collectionName": "components_misc_notification_banners",
+    "info": {
+        "displayName": "notificationBanner",
+        "description": ""
+    },
+    "options": {},
+    "attributes": {
+        "type": {
+            "type": "enumeration",
+            "enum": [
+                "Varning",
+                "Info",
+                "Observera"
+            ],
+            "required": true,
+            "default": "Info"
+        },
+        "heading": {
+            "type": "string",
+            "required": true
+        },
+        "content": {
+            "type": "text",
+            "required": true
+        },
+        "startDate": {
+            "type": "datetime",
+            "required": true
+        },
+        "endDate": {
+            "type": "datetime"
+        },
+        "link": {
+            "type": "component",
+            "repeatable": false,
+            "component": "links.link"
+        }
+    }
+}

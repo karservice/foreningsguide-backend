@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_misc_metadata",
+  "info": {
+    "displayName": "metadata"
+  },
+  "options": {},
+  "attributes": {
+    "metaTitle": {
+      "type": "string",
+      "required": true
+    },
+    "metaDescription": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

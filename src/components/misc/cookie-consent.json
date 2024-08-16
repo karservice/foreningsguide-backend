@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_misc_cookie_consents",
+  "info": {
+    "displayName": "cookieConsent",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "type": "string",
+      "required": true
+    },
+    "buttonText": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
