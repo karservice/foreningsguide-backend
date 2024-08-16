@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_sections_ingress_texts",
+  "info": {
+    "displayName": "Ingress",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "type": "blocks",
+      "required": true
+    }
+  }
+}

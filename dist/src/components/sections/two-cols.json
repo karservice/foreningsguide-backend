@@ -1,0 +1,48 @@
+{
+    "collectionName": "components_sections_two_cols",
+    "info": {
+        "displayName": "Två kolumner med varierande innehåll",
+        "description": ""
+    },
+    "options": {},
+    "attributes": {
+        "heading": {
+            "type": "string",
+            "required": true
+        },
+        "anchor": {
+            "type": "string",
+            "unique": true
+        },
+        "leftContent": {
+            "type": "blocks",
+            "required": true
+        },
+        "background": {
+            "type": "enumeration",
+            "enum": [
+                "blå",
+                "gul",
+                "kalk",
+                "korall",
+                "mint"
+            ]
+        },
+        "rightContent": {
+            "type": "blocks",
+            "required": true
+        },
+        "leftColumnWidth": {
+            "type": "integer",
+            "required": true,
+            "default": 6,
+            "max": 12,
+            "min": 1
+        },
+        "buttons": {
+            "type": "component",
+            "repeatable": true,
+            "component": "links.button"
+        }
+    }
+}
