@@ -4,7 +4,7 @@
     "info": {
         "singularName": "course",
         "pluralName": "courses",
-        "displayName": "Kurs",
+        "displayName": "Guide",
         "description": ""
     },
     "options": {
@@ -35,7 +35,8 @@
         "content": {
             "type": "dynamiczone",
             "components": [
-                "course-elements.course-text"
+                "course-elements.course-text",
+                "sections.html-utan-marginaler"
             ],
             "required": true
         },

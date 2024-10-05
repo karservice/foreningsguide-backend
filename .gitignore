@@ -6,6 +6,7 @@ node_modules/
 .cache/
 admin/build/
 admin/src/core/
+dist/build/
 
 # Temporary files
 *.tmp

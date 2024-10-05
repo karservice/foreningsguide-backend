@@ -828,7 +828,7 @@ export interface ApiCourseCourse extends Schema.CollectionType {
   info: {
     singularName: 'course';
     pluralName: 'courses';
-    displayName: 'Kurs';
+    displayName: 'Guide';
     description: '';
   };
   options: {
@@ -851,7 +851,9 @@ export interface ApiCourseCourse extends Schema.CollectionType {
         },
         number
       >;
-    content: Attribute.DynamicZone<['course-elements.course-text']> &
+    content: Attribute.DynamicZone<
+      ['course-elements.course-text', 'sections.html-utan-marginaler']
+    > &
       Attribute.Required;
     coverImage: Attribute.Media<'images'> & Attribute.Required;
     seo: Attribute.Component<'misc.seo'> & Attribute.Required;
@@ -927,7 +929,8 @@ export interface ApiPagePage extends Schema.CollectionType {
         'sections.hero',
         'sections.full-width-text',
         'sections.blob-with-bg',
-        'sections.blob-homepage'
+        'sections.blob-homepage',
+        'sections.html-utan-marginaler'
       ]
     > &
       Attribute.Required;

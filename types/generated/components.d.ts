@@ -40,6 +40,17 @@ export interface SectionsIngressText extends Schema.Component {
   };
 }
 
+export interface SectionsHtmlUtanMarginaler extends Schema.Component {
+  collectionName: 'components_sections_html_utan_marginaler_s';
+  info: {
+    displayName: 'HTML';
+    description: '';
+  };
+  attributes: {
+    content: Attribute.Text;
+  };
+}
+
 export interface SectionsHero extends Schema.Component {
   collectionName: 'components_sections_heroes';
   info: {
@@ -259,6 +270,29 @@ export interface LayoutFooter extends Schema.Component {
   };
 }
 
+export interface CourseElementsCourseText extends Schema.Component {
+  collectionName: 'components_course_elements_course_texts';
+  info: {
+    displayName: 'Guide - Text';
+    description: '';
+  };
+  attributes: {
+    heading: Attribute.String & Attribute.Required;
+    content: Attribute.Blocks & Attribute.Required;
+    level: Attribute.Integer &
+      Attribute.Required &
+      Attribute.SetMinMax<
+        {
+          min: 1;
+          max: 3;
+        },
+        number
+      > &
+      Attribute.DefaultTo<1>;
+    sidenote: Attribute.Component<'elements.sidenote', true>;
+  };
+}
+
 export interface ElementsSidenote extends Schema.Component {
   collectionName: 'components_elements_sidenotes';
   info: {
@@ -304,34 +338,12 @@ export interface ElementsFooterLeft extends Schema.Component {
   collectionName: 'components_elements_footer_lefts';
   info: {
     displayName: 'footerLeft';
-  };
-  attributes: {
-    heading: Attribute.String & Attribute.Required;
-    content: Attribute.Blocks & Attribute.Required;
-    euLogo: Attribute.Media<'images'> & Attribute.Required;
-  };
-}
-
-export interface CourseElementsCourseText extends Schema.Component {
-  collectionName: 'components_course_elements_course_texts';
-  info: {
-    displayName: 'Kurs - Text';
     description: '';
   };
   attributes: {
     heading: Attribute.String & Attribute.Required;
     content: Attribute.Blocks & Attribute.Required;
-    level: Attribute.Integer &
-      Attribute.Required &
-      Attribute.SetMinMax<
-        {
-          min: 1;
-          max: 3;
-        },
-        number
-      > &
-      Attribute.DefaultTo<1>;
-    sidenote: Attribute.Component<'elements.sidenote', true>;
+    sponsoredLogo: Attribute.Media<'images'> & Attribute.Required;
   };
 }
 
@@ -340,6 +352,7 @@ declare module '@strapi/types' {
     export interface Components {
       'sections.two-cols': SectionsTwoCols;
       'sections.ingress-text': SectionsIngressText;
+      'sections.html-utan-marginaler': SectionsHtmlUtanMarginaler;
       'sections.hero': SectionsHero;
       'sections.full-width-text': SectionsFullWidthText;
       'sections.blob-with-bg': SectionsBlobWithBg;
@@ -353,11 +366,11 @@ declare module '@strapi/types' {
       'links.button': LinksButton;
       'layout.navbar': LayoutNavbar;
       'layout.footer': LayoutFooter;
+      'course-elements.course-text': CourseElementsCourseText;
       'elements.sidenote': ElementsSidenote;
       'elements.logo': ElementsLogo;
       'elements.footer-right': ElementsFooterRight;
       'elements.footer-left': ElementsFooterLeft;
-      'course-elements.course-text': CourseElementsCourseText;
     }
   }
 }

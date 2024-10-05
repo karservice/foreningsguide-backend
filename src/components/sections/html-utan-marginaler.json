@@ -1,0 +1,26 @@
+{
+    "collectionName": "components_elements_footer_lefts",
+    "info": {
+      "displayName": "footerLeft",
+      "description": ""
+    },
+    "options": {},
+    "attributes": {
+      "heading": {
+        "type": "string",
+        "required": true
+      },
+      "content": {
+        "type": "blocks",
+        "required": true
+      },
+      "sponsoredLogo": {
+        "type": "media",
+        "multiple": false,
+        "required": true,
+        "allowedTypes": [
+          "images"
+        ]
+      }
+    }
+  }

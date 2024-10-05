@@ -29,7 +29,8 @@
         "sections.hero",
         "sections.full-width-text",
         "sections.blob-with-bg",
-        "sections.blob-homepage"
+        "sections.blob-homepage",
+        "sections.html-utan-marginaler"
       ],
       "required": true
     },
