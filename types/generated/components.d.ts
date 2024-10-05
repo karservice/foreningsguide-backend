@@ -335,7 +335,7 @@ export interface ElementsFooterRight extends Schema.Component {
 }
 
 export interface ElementsFooterLeft extends Schema.Component {
-  collectionName: 'components_elements_footer_lefts_new';
+  collectionName: 'components_elements_footer_lefts';
   info: {
     displayName: 'footerLeft';
     description: '';
