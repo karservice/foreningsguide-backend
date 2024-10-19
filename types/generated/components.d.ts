@@ -1,5 +1,110 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface SharedSeo extends Schema.Component {
+  collectionName: 'components_shared_seos';
+  info: {
+    displayName: 'seo';
+    icon: 'search';
+  };
+  attributes: {
+    metaTitle: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 60;
+      }>;
+    metaDescription: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        minLength: 50;
+        maxLength: 160;
+      }>;
+    metaImage: Attribute.Media<'images' | 'files' | 'videos'>;
+    metaSocial: Attribute.Component<'shared.meta-social', true>;
+    keywords: Attribute.Text;
+    metaRobots: Attribute.String;
+    structuredData: Attribute.JSON;
+    metaViewport: Attribute.String;
+    canonicalURL: Attribute.String;
+  };
+}
+
+export interface SharedMetaSocial extends Schema.Component {
+  collectionName: 'components_shared_meta_socials';
+  info: {
+    displayName: 'metaSocial';
+    icon: 'project-diagram';
+  };
+  attributes: {
+    socialNetwork: Attribute.Enumeration<['Facebook', 'Twitter']> &
+      Attribute.Required;
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 60;
+      }>;
+    description: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 65;
+      }>;
+    image: Attribute.Media<'images' | 'files' | 'videos'>;
+  };
+}
+
+export interface MiscSeo extends Schema.Component {
+  collectionName: 'components_misc_seos';
+  info: {
+    displayName: 'seo';
+  };
+  attributes: {
+    metaTitle: Attribute.String & Attribute.Required;
+    metaDescription: Attribute.Text & Attribute.Required;
+    shareImage: Attribute.Media<'images'> & Attribute.Required;
+  };
+}
+
+export interface MiscNotificationBanner extends Schema.Component {
+  collectionName: 'components_misc_notification_banners';
+  info: {
+    displayName: 'notificationBanner';
+    description: '';
+  };
+  attributes: {
+    type: Attribute.Enumeration<['Varning', 'Info', 'Observera']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'Info'>;
+    heading: Attribute.String & Attribute.Required;
+    content: Attribute.Text & Attribute.Required;
+    startDate: Attribute.DateTime & Attribute.Required;
+    endDate: Attribute.DateTime;
+    link: Attribute.Component<'links.link'>;
+  };
+}
+
+export interface MiscMetadata extends Schema.Component {
+  collectionName: 'components_misc_metadata';
+  info: {
+    displayName: 'metadata';
+  };
+  attributes: {
+    metaTitle: Attribute.String & Attribute.Required;
+    metaDescription: Attribute.Text & Attribute.Required;
+  };
+}
+
+export interface MiscCookieConsent extends Schema.Component {
+  collectionName: 'components_misc_cookie_consents';
+  info: {
+    displayName: 'cookieConsent';
+    description: '';
+  };
+  attributes: {
+    heading: Attribute.String & Attribute.Required;
+    content: Attribute.String & Attribute.Required;
+    buttonText: Attribute.String & Attribute.Required;
+  };
+}
+
 export interface SectionsTwoCols extends Schema.Component {
   collectionName: 'components_sections_two_cols';
   info: {
@@ -135,60 +240,6 @@ export interface SectionsBlobHomepage extends Schema.Component {
   };
 }
 
-export interface MiscSeo extends Schema.Component {
-  collectionName: 'components_misc_seos';
-  info: {
-    displayName: 'seo';
-  };
-  attributes: {
-    metaTitle: Attribute.String & Attribute.Required;
-    metaDescription: Attribute.Text & Attribute.Required;
-    shareImage: Attribute.Media<'images'> & Attribute.Required;
-  };
-}
-
-export interface MiscNotificationBanner extends Schema.Component {
-  collectionName: 'components_misc_notification_banners';
-  info: {
-    displayName: 'notificationBanner';
-    description: '';
-  };
-  attributes: {
-    type: Attribute.Enumeration<['Varning', 'Info', 'Observera']> &
-      Attribute.Required &
-      Attribute.DefaultTo<'Info'>;
-    heading: Attribute.String & Attribute.Required;
-    content: Attribute.Text & Attribute.Required;
-    startDate: Attribute.DateTime & Attribute.Required;
-    endDate: Attribute.DateTime;
-    link: Attribute.Component<'links.link'>;
-  };
-}
-
-export interface MiscMetadata extends Schema.Component {
-  collectionName: 'components_misc_metadata';
-  info: {
-    displayName: 'metadata';
-  };
-  attributes: {
-    metaTitle: Attribute.String & Attribute.Required;
-    metaDescription: Attribute.Text & Attribute.Required;
-  };
-}
-
-export interface MiscCookieConsent extends Schema.Component {
-  collectionName: 'components_misc_cookie_consents';
-  info: {
-    displayName: 'cookieConsent';
-    description: '';
-  };
-  attributes: {
-    heading: Attribute.String & Attribute.Required;
-    content: Attribute.String & Attribute.Required;
-    buttonText: Attribute.String & Attribute.Required;
-  };
-}
-
 export interface LinksLinkedImage extends Schema.Component {
   collectionName: 'components_links_linked_images';
   info: {
@@ -270,29 +321,6 @@ export interface LayoutFooter extends Schema.Component {
   };
 }
 
-export interface CourseElementsCourseText extends Schema.Component {
-  collectionName: 'components_course_elements_course_texts';
-  info: {
-    displayName: 'Guide - Text';
-    description: '';
-  };
-  attributes: {
-    heading: Attribute.String & Attribute.Required;
-    content: Attribute.Blocks & Attribute.Required;
-    level: Attribute.Integer &
-      Attribute.Required &
-      Attribute.SetMinMax<
-        {
-          min: 1;
-          max: 3;
-        },
-        number
-      > &
-      Attribute.DefaultTo<1>;
-    sidenote: Attribute.Component<'elements.sidenote', true>;
-  };
-}
-
 export interface ElementsSidenote extends Schema.Component {
   collectionName: 'components_elements_sidenotes';
   info: {
@@ -347,9 +375,38 @@ export interface ElementsFooterLeft extends Schema.Component {
   };
 }
 
+export interface CourseElementsCourseText extends Schema.Component {
+  collectionName: 'components_course_elements_course_texts';
+  info: {
+    displayName: 'Guide - Text';
+    description: '';
+  };
+  attributes: {
+    heading: Attribute.String & Attribute.Required;
+    content: Attribute.Blocks & Attribute.Required;
+    level: Attribute.Integer &
+      Attribute.Required &
+      Attribute.SetMinMax<
+        {
+          min: 1;
+          max: 3;
+        },
+        number
+      > &
+      Attribute.DefaultTo<1>;
+    sidenote: Attribute.Component<'elements.sidenote', true>;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'shared.seo': SharedSeo;
+      'shared.meta-social': SharedMetaSocial;
+      'misc.seo': MiscSeo;
+      'misc.notification-banner': MiscNotificationBanner;
+      'misc.metadata': MiscMetadata;
+      'misc.cookie-consent': MiscCookieConsent;
       'sections.two-cols': SectionsTwoCols;
       'sections.ingress-text': SectionsIngressText;
       'sections.html-utan-marginaler': SectionsHtmlUtanMarginaler;
@@ -357,20 +414,16 @@ declare module '@strapi/types' {
       'sections.full-width-text': SectionsFullWidthText;
       'sections.blob-with-bg': SectionsBlobWithBg;
       'sections.blob-homepage': SectionsBlobHomepage;
-      'misc.seo': MiscSeo;
-      'misc.notification-banner': MiscNotificationBanner;
-      'misc.metadata': MiscMetadata;
-      'misc.cookie-consent': MiscCookieConsent;
       'links.linked-image': LinksLinkedImage;
       'links.link': LinksLink;
       'links.button': LinksButton;
       'layout.navbar': LayoutNavbar;
       'layout.footer': LayoutFooter;
-      'course-elements.course-text': CourseElementsCourseText;
       'elements.sidenote': ElementsSidenote;
       'elements.logo': ElementsLogo;
       'elements.footer-right': ElementsFooterRight;
       'elements.footer-left': ElementsFooterLeft;
+      'course-elements.course-text': CourseElementsCourseText;
     }
   }
 }

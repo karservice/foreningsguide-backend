@@ -40,9 +40,10 @@
     },
     "notificationBanner": {
       "type": "component",
-      "repeatable": false,
+      "repeatable": true,
       "component": "misc.notification-banner",
-      "required": false
+      "required": false,
+      "max": 3
     },
     "metadata": {
       "type": "component",
