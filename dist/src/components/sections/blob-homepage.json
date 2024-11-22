@@ -1,7 +1,7 @@
 {
     "collectionName": "components_sections_blob_homepages",
     "info": {
-        "displayName": "Textblock med bild + form till höger (startsidepuff)",
+        "displayName": "Textblock med bild + form (startsidepuff)",
         "description": ""
     },
     "options": {},
@@ -61,6 +61,18 @@
             "type": "component",
             "repeatable": true,
             "component": "links.button"
+        },
+        "background": {
+            "type": "enumeration",
+            "enum": [
+                "blå",
+                "gul",
+                "kalk",
+                "korall",
+                "mint",
+                "vit"
+            ],
+            "required": true
         }
     }
 }
