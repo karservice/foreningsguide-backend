@@ -51,60 +51,6 @@ export interface SharedMetaSocial extends Schema.Component {
   };
 }
 
-export interface MiscSeo extends Schema.Component {
-  collectionName: 'components_misc_seos';
-  info: {
-    displayName: 'seo';
-  };
-  attributes: {
-    metaTitle: Attribute.String & Attribute.Required;
-    metaDescription: Attribute.Text & Attribute.Required;
-    shareImage: Attribute.Media<'images'> & Attribute.Required;
-  };
-}
-
-export interface MiscNotificationBanner extends Schema.Component {
-  collectionName: 'components_misc_notification_banners';
-  info: {
-    displayName: 'notificationBanner';
-    description: '';
-  };
-  attributes: {
-    type: Attribute.Enumeration<['Varning', 'Info', 'Observera']> &
-      Attribute.Required &
-      Attribute.DefaultTo<'Info'>;
-    heading: Attribute.String & Attribute.Required;
-    content: Attribute.Text & Attribute.Required;
-    startDate: Attribute.DateTime & Attribute.Required;
-    endDate: Attribute.DateTime;
-    link: Attribute.Component<'links.link'>;
-  };
-}
-
-export interface MiscMetadata extends Schema.Component {
-  collectionName: 'components_misc_metadata';
-  info: {
-    displayName: 'metadata';
-  };
-  attributes: {
-    metaTitle: Attribute.String & Attribute.Required;
-    metaDescription: Attribute.Text & Attribute.Required;
-  };
-}
-
-export interface MiscCookieConsent extends Schema.Component {
-  collectionName: 'components_misc_cookie_consents';
-  info: {
-    displayName: 'cookieConsent';
-    description: '';
-  };
-  attributes: {
-    heading: Attribute.String & Attribute.Required;
-    content: Attribute.String & Attribute.Required;
-    buttonText: Attribute.String & Attribute.Required;
-  };
-}
-
 export interface SectionsTwoCols extends Schema.Component {
   collectionName: 'components_sections_two_cols';
   info: {
@@ -235,8 +181,64 @@ export interface SectionsBlobHomepage extends Schema.Component {
       Attribute.DefaultTo<'Stor bild'>;
     image: Attribute.Media<'images'> & Attribute.Required;
     blobColor: Attribute.Enumeration<
-      ['bl\u00E5', 'gul', 'kalk', 'korall', 'mint']
-    >;
+      ['bl\u00E5', 'gul', 'kalk', 'korall', 'mint', 'vit', 'ingen bakgrund']
+    > &
+      Attribute.Required;
+    buttons: Attribute.Component<'links.button', true>;
+  };
+}
+
+export interface MiscSeo extends Schema.Component {
+  collectionName: 'components_misc_seos';
+  info: {
+    displayName: 'seo';
+  };
+  attributes: {
+    metaTitle: Attribute.String & Attribute.Required;
+    metaDescription: Attribute.Text & Attribute.Required;
+    shareImage: Attribute.Media<'images'> & Attribute.Required;
+  };
+}
+
+export interface MiscNotificationBanner extends Schema.Component {
+  collectionName: 'components_misc_notification_banners';
+  info: {
+    displayName: 'notificationBanner';
+    description: '';
+  };
+  attributes: {
+    type: Attribute.Enumeration<['Varning', 'Info', 'Observera']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'Info'>;
+    heading: Attribute.String & Attribute.Required;
+    content: Attribute.Text & Attribute.Required;
+    startDate: Attribute.DateTime & Attribute.Required;
+    endDate: Attribute.DateTime;
+    link: Attribute.Component<'links.link'>;
+  };
+}
+
+export interface MiscMetadata extends Schema.Component {
+  collectionName: 'components_misc_metadata';
+  info: {
+    displayName: 'metadata';
+  };
+  attributes: {
+    metaTitle: Attribute.String & Attribute.Required;
+    metaDescription: Attribute.Text & Attribute.Required;
+  };
+}
+
+export interface MiscCookieConsent extends Schema.Component {
+  collectionName: 'components_misc_cookie_consents';
+  info: {
+    displayName: 'cookieConsent';
+    description: '';
+  };
+  attributes: {
+    heading: Attribute.String & Attribute.Required;
+    content: Attribute.String & Attribute.Required;
+    buttonText: Attribute.String & Attribute.Required;
   };
 }
 
@@ -403,10 +405,6 @@ declare module '@strapi/types' {
     export interface Components {
       'shared.seo': SharedSeo;
       'shared.meta-social': SharedMetaSocial;
-      'misc.seo': MiscSeo;
-      'misc.notification-banner': MiscNotificationBanner;
-      'misc.metadata': MiscMetadata;
-      'misc.cookie-consent': MiscCookieConsent;
       'sections.two-cols': SectionsTwoCols;
       'sections.ingress-text': SectionsIngressText;
       'sections.html-utan-marginaler': SectionsHtmlUtanMarginaler;
@@ -414,6 +412,10 @@ declare module '@strapi/types' {
       'sections.full-width-text': SectionsFullWidthText;
       'sections.blob-with-bg': SectionsBlobWithBg;
       'sections.blob-homepage': SectionsBlobHomepage;
+      'misc.seo': MiscSeo;
+      'misc.notification-banner': MiscNotificationBanner;
+      'misc.metadata': MiscMetadata;
+      'misc.cookie-consent': MiscCookieConsent;
       'links.linked-image': LinksLinkedImage;
       'links.link': LinksLink;
       'links.button': LinksButton;

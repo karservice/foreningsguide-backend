@@ -51,8 +51,16 @@
                 "gul",
                 "kalk",
                 "korall",
-                "mint"
-            ]
+                "mint",
+                "vit",
+                "ingen bakgrund"
+            ],
+            "required": true
+        },
+        "buttons": {
+            "type": "component",
+            "repeatable": true,
+            "component": "links.button"
         }
     }
 }

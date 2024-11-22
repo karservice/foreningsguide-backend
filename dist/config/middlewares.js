@@ -12,8 +12,8 @@ module.exports = [
         name: 'strapi::cors',
         config: {
             origin: ['http://localhost:3000', 'https://foreningsguide-frontend.vercel.app/', 'https://foreningsguide.studentlivet.se'],
-            methods: ['GET'],
-            headers: ['Content-Type', 'Authorization'],
+            methods: ['GET', 'OPTIONS'],
+            headers: ['Content-Type', 'Authorization', 'Access-Control-Allow-Headers', 'Access-Control-Allow-Origin'],
         },
     },
 ];
