@@ -11,4 +11,17 @@ export default ({ env }: { env: Strapi['config']['get'] }) => ({
       },
     },
   },
+  email: {
+    config: {
+      provider: 'sendgrid', 
+      providerOptions: {
+        apiKey: env('SENDGRID_API_KEY'),
+      },
+      settings: {
+        defaultFrom: 'foreningsguiden@studentlivet.se',
+        defaultReplyTo: 'webb@karservice.se',
+        testAddress: 'no-reply@studentlivet.se',
+      },
+    },
+  },
 });
